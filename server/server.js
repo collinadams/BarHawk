@@ -60,6 +60,21 @@ app.post('/api/users/signup', function (req, res) {
 
 });
 
+app.get('api/users/signedin', function(req,res){
+  var token = req.body.headers['x-access-token'];
+  // if(!token){
+  //   throw new Error('No token');
+  // } else{
+    var user = jwt.decode(token, 'barHawksecret444');
+    console.log('xxxxxxx inside server signedin', user);
+    if(user in users){
+      res.status(200).send();
+    }else{
+      res.status(401).send();
+    }
+  // }
+});
+
 app.post('/api/users/login', function (req, res) {
   //set username/password request to attempt variable
   var attempt = req.body;

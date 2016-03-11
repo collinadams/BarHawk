@@ -1,6 +1,6 @@
 angular.module('asyncdrink.options', [])
 
-.controller('optionsController', function ($scope, $state, customerFactory, optionsFactory) {
+.controller('optionsController', function ($scope, $state, $window, customerFactory, optionsFactory) {
   //set current user
   $scope.currentUser = optionsFactory.currentUser;
   //prepare order object before submit to server
@@ -35,6 +35,7 @@ angular.module('asyncdrink.options', [])
 
   //log out
   $scope.logOut = function () {
+    $window.localStorage.removeItem('com.barhawk');
     optionsFactory.currentUser = undefined;
     $state.go('customerLogin');
   };

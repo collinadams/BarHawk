@@ -70,9 +70,25 @@ angular.module('asyncdrink.customerAuth', [])
     });
   };
 
+  var isAuth = function(){
+    // return !!$window.localStorage.getItem('com.barhawk');
+    return $http({
+      method: 'GET', 
+      url: '/api/users/signedin',
+    })
+    .then(function(){
+      return true;
+    })
+    .catch(function(){
+      return false;
+    })
+  };
+
+
   return {
     signUp: signUp,
-    signIn: signIn
+    signIn: signIn,
+    isAuth: isAuth,
   };
 
 });
