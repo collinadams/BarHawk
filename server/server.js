@@ -41,7 +41,7 @@ app.listen(port, function () {
 var users = {
   Michael: {
     password: "password",
-    age: '25',
+    age: 25,
     weight: 160,
     gender: "Male",
     drinkCount: 0,

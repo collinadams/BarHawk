@@ -9,8 +9,8 @@ angular.module('asyncdrink.customerAuth', [])
   //dummy data for easy submit
   $scope.newUser.username = 'Beyonce';
   $scope.newUser.password = "pass";
-  $scope.newUser.age = "25";
-  $scope.newUser.weight = '160';
+  $scope.newUser.age = 25;
+  $scope.newUser.weight = 160;
 
   $scope.loginAttempt = {};
 
