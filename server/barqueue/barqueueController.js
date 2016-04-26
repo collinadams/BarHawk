@@ -98,6 +98,7 @@ module.exports = {
 
     var messageBody;
 
+    //the below queries name and phone num from psql db to build up text message for Twilio API call
     db.sequelize.query("Select firstname, phone from users where username = '" + customerName + "';")
       .then(function(targetPhoneNum) {
         messageBody = 'Hey ' + targetPhoneNum[0]['0'].firstname + ', ';
